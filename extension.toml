@@ -1,0 +1,11 @@
+id = "aleo"
+name = "Aleo"
+version = "0.0.1"
+schema_version = 1
+authors = ["MagicGordon"]
+description = "Aleo language support for Zed."
+repository = "https://github.com/MagicGordon/zed-aleo-extension"
+
+[grammars.aleo]
+repository = "https://github.com/MagicGordon/tree-sitter-aleo"
+rev = "main"

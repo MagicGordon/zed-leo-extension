@@ -1,0 +1,9 @@
+name = "Aleo"
+grammar = "aleo"
+path_suffixes = ["aleo"]
+line_comments = ["// "]
+
+brackets = [
+  { start = "[", end = "]", close = true, newline = false },
+  { start = "(", end = ")", close = true, newline = false },
+]
