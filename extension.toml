@@ -9,3 +9,7 @@ repository = "https://github.com/MagicGordon/zed-aleo-extension"
 [grammars.aleo]
 repository = "https://github.com/MagicGordon/tree-sitter-aleo"
 rev = "main"
+
+[grammars.leo]
+repository = "https://github.com/MagicGordon/tree-sitter-leo"
+rev = "3e9b1934e6cd1c46099d8bc91901cdf0113efaba"
