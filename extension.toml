@@ -12,4 +12,4 @@ rev = "main"
 
 [grammars.leo]
 repository = "https://github.com/MagicGordon/tree-sitter-leo"
-rev = "3e9b1934e6cd1c46099d8bc91901cdf0113efaba"
+rev = "8fa404c9f45246b47e4ad88a2fe3d03c65e1a594"

@@ -10,6 +10,8 @@
 (boolean) @boolean
 (none) @constant.builtin
 (special_expression) @variable.special
+(special_path) @variable.special
+(underscore) @variable.special
 
 ; Names and locators
 (annotation) @attribute
