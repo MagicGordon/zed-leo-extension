@@ -1,0 +1,78 @@
+{
+  "Program": {
+    "prefix": "program",
+    "body": [
+      "program ${1:name}.aleo {",
+      "    $0",
+      "}"
+    ],
+    "description": "Create a Leo program"
+  },
+  "Function": {
+    "prefix": "function",
+    "body": [
+      "function ${1:name}(${2:public input: u32}) -> ${3:u32} {",
+      "    $0",
+      "}"
+    ],
+    "description": "Create a Leo function"
+  },
+  "Transition": {
+    "prefix": "transition",
+    "body": [
+      "transition ${1:name}(${2:private input: u32}) -> ${3:u32} {",
+      "    $0",
+      "}"
+    ],
+    "description": "Create a Leo transition"
+  },
+  "Async Transition": {
+    "prefix": "async-transition",
+    "body": [
+      "async transition ${1:name}(${2:public input: u32}) -> ${3:Future<Fn() -> bool>} {",
+      "    $0",
+      "}"
+    ],
+    "description": "Create an async Leo transition"
+  },
+  "Record": {
+    "prefix": "record",
+    "body": [
+      "record ${1:Name} {",
+      "    owner: address,",
+      "    $0",
+      "}"
+    ],
+    "description": "Create a Leo record"
+  },
+  "Struct": {
+    "prefix": "struct",
+    "body": [
+      "struct ${1:Name} {",
+      "    ${2:field}: ${3:u64},",
+      "    $0",
+      "}"
+    ],
+    "description": "Create a Leo struct"
+  },
+  "Mapping": {
+    "prefix": "mapping",
+    "body": "mapping ${1:name}: ${2:address} => ${3:u64};",
+    "description": "Create a Leo mapping"
+  },
+  "Test": {
+    "prefix": "test",
+    "body": [
+      "@test",
+      "function ${1:test_name}() {",
+      "    $0",
+      "}"
+    ],
+    "description": "Create a Leo test function"
+  },
+  "Assert Equal": {
+    "prefix": "assert-eq",
+    "body": "assert_eq(${1:left}, ${2:right});",
+    "description": "Assert two Leo expressions are equal"
+  }
+}

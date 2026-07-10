@@ -5,6 +5,7 @@ schema_version = 1
 authors = ["MagicGordon"]
 description = "Aleo language support for Zed."
 repository = "https://github.com/MagicGordon/zed-aleo-extension"
+snippets = ["./snippets/leo.json"]
 
 [grammars.aleo]
 repository = "https://github.com/MagicGordon/tree-sitter-aleo"
@@ -12,4 +13,11 @@ rev = "3bf5e17e4e67c207b5a6138277bad90b83bc901d"
 
 [grammars.leo]
 repository = "https://github.com/MagicGordon/tree-sitter-leo"
-rev = "8fa404c9f45246b47e4ad88a2fe3d03c65e1a594"
+rev = "07dd5232fdcca7fd7d8d0d096991a95ebb84939f"
+
+[language_servers.leo-lsp]
+name = "Leo LSP"
+languages = ["Leo"]
+
+[language_servers.leo-lsp.language_ids]
+Leo = "leo"
