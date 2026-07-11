@@ -38,20 +38,7 @@ The extension does not install Leo tooling. Install `leo`, `leo-fmt`, and `leo-l
 
 ## Formatting
 
-If `leo-lsp` provides formatting in your installed Leo toolchain, use the language server formatter:
-
-```json
-{
-  "languages": {
-    "Leo": {
-      "formatter": "language_server",
-      "format_on_save": "on"
-    }
-  }
-}
-```
-
-`leo-fmt` currently formats files and directories in place. Zed external formatters must read source from stdin and write formatted source to stdout, so `leo-fmt` should not be configured as a Zed external formatter unless it gains stdin/stdout support.
+`leo-lsp` 4.2.0 does not advertise LSP document formatting. `leo-fmt` currently formats files and directories in place. Zed external formatters must read source from stdin and write formatted source to stdout, so `leo-fmt` should not be configured as a Zed external formatter unless it gains stdin/stdout support.
 
 To run `leo-fmt` manually from Zed, add a global task:
 
