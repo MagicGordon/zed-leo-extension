@@ -13,7 +13,7 @@ rev = "3bf5e17e4e67c207b5a6138277bad90b83bc901d"
 
 [grammars.leo]
 repository = "https://github.com/MagicGordon/tree-sitter-leo"
-rev = "07dd5232fdcca7fd7d8d0d096991a95ebb84939f"
+rev = "4986faa81c4fe84b65109e9ba4c88aec98c8500a"
 
 [language_servers.leo-lsp]
 name = "Leo LSP"
