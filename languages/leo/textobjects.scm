@@ -3,6 +3,8 @@
   (inline_declaration)
   (function_declaration)
   (test_function_declaration)
+  (view_function_declaration)
+  (final_function_declaration)
   (transition_declaration)
   (finalizer_declaration)
   (script_declaration)

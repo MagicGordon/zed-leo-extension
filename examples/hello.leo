@@ -14,6 +14,7 @@ program hello.aleo {
 
     interface TokenApi {
         fn balance_of(public owner: address) -> u64;
+        view fn allowance(public owner: address, public spender: address) -> u64;
         fn transfer(public to: address, private amount: u64) -> bool;
         record Receipt;
         mapping approvals: address => u64;
@@ -25,9 +26,11 @@ program hello.aleo {
         constant limit: u64,
         private seed: field,
         enabled: bool,
+        key: identifier,
         label: string,
         tags: [field; 2u32],
         pair: (u32, bool),
+        dynamic: dyn record,
     }
 
     record Token {
@@ -47,6 +50,7 @@ program hello.aleo {
             limit: MAX_SUPPLY,
             seed: DEFAULT_FIELD,
             enabled: true,
+            key: 'config',
             label: "initial config",
             tags: [1field, 2field],
             pair: (0u32, true),
@@ -104,10 +108,14 @@ program hello.aleo {
         };
     }
 
-    final finalize_send(public receiver: address, private amount: u64) {
+    final fn finalize_send(public receiver: address, private amount: u64) {
         let previous: u64 = balances.get(receiver);
         balances.set(receiver, previous + amount);
         total_supply.set(total_supply.get() + amount);
+    }
+
+    view fn preview_supply() -> u64 {
+        return total_supply.get();
     }
 
     script run(public receiver: address, private amount: u64) {
@@ -115,7 +123,7 @@ program hello.aleo {
         assert_eq(transfer, true);
     }
 
-    fn helper<const N: u32>(private values: [u64; N]) -> (u64, bool) {
+    fn helper::[N: u32](private values: [u64; N]) -> (u64, bool) {
         let first: u64 = values[0u32];
         let tuple: (u64, bool) = (first, first > 0u64);
         return tuple;

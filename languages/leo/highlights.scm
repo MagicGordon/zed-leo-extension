@@ -16,6 +16,7 @@
   (transition_keyword)
   (inline_keyword)
   (final_keyword)
+  (view_keyword)
   (script_keyword)
   (fn_keyword)
   (async_keyword)
@@ -63,6 +64,10 @@
     name: (identifier) @function)
   (test_function_declaration
     name: (identifier) @function)
+  (view_function_declaration
+    name: (identifier) @function)
+  (final_function_declaration
+    name: (identifier) @function)
   (transition_declaration
     name: (identifier) @function)
   (inline_declaration
@@ -87,6 +92,7 @@
 ; Literals
 (numeric_literal) @number
 (address_literal) @string.special
+(identifier_literal) @string.special
 (string) @string
 
 ; Operators and punctuation

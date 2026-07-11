@@ -28,6 +28,12 @@
 (test_function_declaration
   name: (identifier) @name) @item
 
+(view_function_declaration
+  name: (identifier) @name) @item
+
+(final_function_declaration
+  name: (identifier) @name) @item
+
 (transition_declaration
   name: (identifier) @name) @item
 
