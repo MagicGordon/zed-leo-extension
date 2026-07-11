@@ -9,7 +9,7 @@ snippets = ["./snippets/leo.json"]
 
 [grammars.aleo]
 repository = "https://github.com/MagicGordon/tree-sitter-aleo"
-rev = "3bf5e17e4e67c207b5a6138277bad90b83bc901d"
+rev = "f18ec8495fc0b07d82e6daec2995a3a345a8a2d2"
 
 [grammars.leo]
 repository = "https://github.com/MagicGordon/tree-sitter-leo"
