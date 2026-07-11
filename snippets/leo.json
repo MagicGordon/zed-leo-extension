@@ -1,4 +1,9 @@
 {
+  "Import": {
+    "prefix": "import",
+    "body": "import ${1:credits}.aleo;",
+    "description": "Import a Leo program"
+  },
   "Program": {
     "prefix": "program",
     "body": [
@@ -8,14 +13,73 @@
     ],
     "description": "Create a Leo program"
   },
+  "Constant": {
+    "prefix": "const",
+    "body": "const ${1:NAME}: ${2:u64} = ${3:0u64};",
+    "description": "Create a Leo constant"
+  },
+  "Interface": {
+    "prefix": "interface",
+    "body": [
+      "interface ${1:Name} {",
+      "    $0",
+      "}"
+    ],
+    "description": "Create a Leo interface"
+  },
+  "Interface Extends": {
+    "prefix": "interface-extends",
+    "body": [
+      "interface ${1:Name}: ${2:Parent} {",
+      "    $0",
+      "}"
+    ],
+    "description": "Create a Leo interface that extends another interface"
+  },
   "Function": {
+    "prefix": "fn",
+    "body": [
+      "fn ${1:name}(${2:public input: u32}) -> ${3:u32} {",
+      "    $0",
+      "}"
+    ],
+    "description": "Create a Leo function"
+  },
+  "Function Legacy": {
     "prefix": "function",
     "body": [
       "function ${1:name}(${2:public input: u32}) -> ${3:u32} {",
       "    $0",
       "}"
     ],
-    "description": "Create a Leo function"
+    "description": "Create a Leo function with the function keyword"
+  },
+  "View Function": {
+    "prefix": "view-fn",
+    "body": [
+      "view fn ${1:name}(${2:public input: u32}) -> ${3:u32} {",
+      "    $0",
+      "}"
+    ],
+    "description": "Create a Leo view function"
+  },
+  "Final Function": {
+    "prefix": "final-fn",
+    "body": [
+      "final fn ${1:name}(${2:public input: u32}) {",
+      "    $0",
+      "}"
+    ],
+    "description": "Create a Leo final function"
+  },
+  "Generic Function": {
+    "prefix": "generic-fn",
+    "body": [
+      "fn ${1:name}::[${2:N}: ${3:u32}](${4:private values: [u64; N]}) -> ${5:u64} {",
+      "    $0",
+      "}"
+    ],
+    "description": "Create a Leo function with const parameters"
   },
   "Transition": {
     "prefix": "transition",
@@ -35,6 +99,33 @@
     ],
     "description": "Create an async Leo transition"
   },
+  "Inline Function": {
+    "prefix": "inline",
+    "body": [
+      "inline ${1:name}(${2:private input: u64}) -> ${3:u64} {",
+      "    $0",
+      "}"
+    ],
+    "description": "Create an inline Leo function"
+  },
+  "Script": {
+    "prefix": "script",
+    "body": [
+      "script ${1:name}(${2:public input: u64}) {",
+      "    $0",
+      "}"
+    ],
+    "description": "Create a Leo script"
+  },
+  "Constructor": {
+    "prefix": "constructor",
+    "body": [
+      "constructor(${1:public owner: address}) {",
+      "    $0",
+      "}"
+    ],
+    "description": "Create a Leo constructor"
+  },
   "Record": {
     "prefix": "record",
     "body": [
@@ -44,6 +135,11 @@
       "}"
     ],
     "description": "Create a Leo record"
+  },
+  "Record Declaration": {
+    "prefix": "record-decl",
+    "body": "record ${1:Name};",
+    "description": "Declare a Leo record shape in an interface"
   },
   "Struct": {
     "prefix": "struct",
@@ -60,19 +156,142 @@
     "body": "mapping ${1:name}: ${2:address} => ${3:u64};",
     "description": "Create a Leo mapping"
   },
-  "Test": {
+  "Storage": {
+    "prefix": "storage",
+    "body": "storage ${1:name}: ${2:u64};",
+    "description": "Create Leo storage"
+  },
+  "Test Function": {
     "prefix": "test",
     "body": [
       "@test",
-      "function ${1:test_name}() {",
+      "fn ${1:test_name}() {",
       "    $0",
       "}"
     ],
     "description": "Create a Leo test function"
   },
+  "Should Fail Test": {
+    "prefix": "should-fail-test",
+    "body": [
+      "@test",
+      "@should_fail",
+      "fn ${1:test_name}() {",
+      "    $0",
+      "}"
+    ],
+    "description": "Create a Leo test function that should fail"
+  },
+  "Test Annotation": {
+    "prefix": "@test",
+    "body": "@test",
+    "description": "Insert a Leo test annotation"
+  },
+  "Let Binding": {
+    "prefix": "let",
+    "body": "let ${1:name}: ${2:u64} = ${3:value};",
+    "description": "Create a Leo let binding"
+  },
+  "Return": {
+    "prefix": "return",
+    "body": "return ${1:value};",
+    "description": "Return a Leo expression"
+  },
+  "If Else": {
+    "prefix": "if",
+    "body": [
+      "if ${1:condition} {",
+      "    $0",
+      "} else {",
+      "    ",
+      "}"
+    ],
+    "description": "Create a Leo if else block"
+  },
+  "For Range": {
+    "prefix": "for",
+    "body": [
+      "for ${1:index}: ${2:u32} in ${3:0u32}..${4:10u32} {",
+      "    $0",
+      "}"
+    ],
+    "description": "Create a Leo range loop"
+  },
+  "For Inclusive Range": {
+    "prefix": "for-inclusive",
+    "body": [
+      "for ${1:index}: ${2:u32} in ${3:0u32}..=${4:10u32} {",
+      "    $0",
+      "}"
+    ],
+    "description": "Create a Leo inclusive range loop"
+  },
+  "Assert": {
+    "prefix": "assert",
+    "body": "assert(${1:condition});",
+    "description": "Assert a Leo condition"
+  },
   "Assert Equal": {
     "prefix": "assert-eq",
     "body": "assert_eq(${1:left}, ${2:right});",
     "description": "Assert two Leo expressions are equal"
+  },
+  "Assert Not Equal": {
+    "prefix": "assert-neq",
+    "body": "assert_neq(${1:left}, ${2:right});",
+    "description": "Assert two Leo expressions are not equal"
+  },
+  "Mapping Get": {
+    "prefix": "mapping-get",
+    "body": "${1:mapping}.get(${2:key})",
+    "description": "Read a value from a Leo mapping"
+  },
+  "Mapping Set": {
+    "prefix": "mapping-set",
+    "body": "${1:mapping}.set(${2:key}, ${3:value});",
+    "description": "Write a value to a Leo mapping"
+  },
+  "Storage Get": {
+    "prefix": "storage-get",
+    "body": "${1:storage}.get()",
+    "description": "Read a Leo storage value"
+  },
+  "Storage Set": {
+    "prefix": "storage-set",
+    "body": "${1:storage}.set(${2:value});",
+    "description": "Write a Leo storage value"
+  },
+  "Struct Literal": {
+    "prefix": "struct-literal",
+    "body": [
+      "${1:TypeName} {",
+      "    ${2:field}: ${3:value},",
+      "}"
+    ],
+    "description": "Create a Leo struct literal"
+  },
+  "Record Literal": {
+    "prefix": "record-literal",
+    "body": [
+      "${1:RecordName} {",
+      "    owner: ${2:self.signer},",
+      "    ${3:field}: ${4:value},",
+      "}"
+    ],
+    "description": "Create a Leo record literal"
+  },
+  "Async Block": {
+    "prefix": "async-block",
+    "body": [
+      "async {",
+      "    $0",
+      "}"
+    ],
+    "description": "Create a Leo async block"
+  },
+  "External Call": {
+    "prefix": "external-call",
+    "body": "${1:program}.aleo/${2:function}(${3:args})",
+    "description": "Call a function in another Leo program"
   }
 }
