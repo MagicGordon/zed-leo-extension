@@ -35,3 +35,36 @@ After this is configured, Leo functions annotated with `@test` show a runnable m
 ## Tooling
 
 The extension does not install Leo tooling. Install `leo`, `leo-fmt`, and `leo-lsp` separately, and make sure the commands are available on `PATH`.
+
+## Formatting
+
+If `leo-lsp` provides formatting in your installed Leo toolchain, use the language server formatter:
+
+```json
+{
+  "languages": {
+    "Leo": {
+      "formatter": "language_server",
+      "format_on_save": "on"
+    }
+  }
+}
+```
+
+`leo-fmt` currently formats files and directories in place. Zed external formatters must read source from stdin and write formatted source to stdout, so `leo-fmt` should not be configured as a Zed external formatter unless it gains stdin/stdout support.
+
+To run `leo-fmt` manually from Zed, add a global task:
+
+```json
+[
+  {
+    "label": "leo fmt current file",
+    "command": "leo-fmt",
+    "args": ["$ZED_FILE"],
+    "cwd": "$ZED_WORKTREE_ROOT",
+    "save": "current",
+    "use_new_terminal": false,
+    "allow_concurrent_runs": true
+  }
+]
+```
