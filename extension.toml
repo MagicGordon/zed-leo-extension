@@ -4,7 +4,7 @@ version = "0.0.1"
 schema_version = 1
 authors = ["MagicGordon"]
 description = "Leo and Aleo language support for Zed."
-repository = "https://github.com/MagicGordon/zed-aleo-extension"
+repository = "https://github.com/MagicGordon/zed-leo-extension"
 snippets = ["./snippets/leo.json"]
 
 [grammars.aleo]
