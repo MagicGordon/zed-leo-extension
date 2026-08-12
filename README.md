@@ -1,11 +1,11 @@
-# Aleo for Zed
+# Leo for Zed
 
-A Zed extension for Aleo and Leo language support.
+A Zed extension for Leo and Aleo language support.
 
 ## Features
 
-- Syntax highlighting for Aleo files.
 - Syntax highlighting for Leo files.
+- Syntax highlighting for Aleo files.
 - Outline symbols for Leo programs, structs, records, mappings, functions, transitions, and tests.
 - Runnable markers for Leo test functions annotated with `@test`.
 - Leo snippets.

@@ -1,9 +1,9 @@
-id = "aleo"
-name = "Aleo"
+id = "leo"
+name = "Leo"
 version = "0.0.1"
 schema_version = 1
 authors = ["MagicGordon"]
-description = "Aleo and Leo language support for Zed."
+description = "Leo and Aleo language support for Zed."
 repository = "https://github.com/MagicGordon/zed-aleo-extension"
 snippets = ["./snippets/leo.json"]
 
